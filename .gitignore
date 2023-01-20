@@ -2,3 +2,5 @@ node_modules
 cypress/videos
 cypress/report/mochawesome-report/*
 !cypress/report/mochawesome-report/.gitkeep
+cypress/screenshots/*
+!cypress/screenshots/.gitkeep
