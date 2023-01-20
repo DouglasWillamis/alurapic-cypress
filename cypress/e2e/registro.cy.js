@@ -26,4 +26,10 @@ describe('Registro de usuário no alura pic', () => {
         cy.contains('button', 'Register').click()
         cy.contains('ap-vmessage', 'Mininum length is 8').should('be.visible')
     })
+
+    it('verifica mensagem de que o nome do usuário deve estar em minúsculo', () => {
+        cy.get('input[formcontrolname="userName"]').type('TESTE')
+        cy.contains('button', 'Register').click()
+        cy.contains('ap-vmessage', 'Must be lower case').should('be.visible')
+    })
 })
