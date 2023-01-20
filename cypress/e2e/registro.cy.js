@@ -1,11 +1,10 @@
 describe('Registro de usuário no alura pic', () => {
     beforeEach(() => {
         cy.visit('https://alura-fotos.herokuapp.com')
+        cy.contains('a', 'Register now').click()
     })
 
     it('verifica mensagens de validação', () => {
-        cy.contains('a', 'Register now').click()
-
         cy.get('ng-component h4.text-center')
             .should('have.text', 'Register to embrace a new world!')
         cy.contains('button', 'Register').click()
@@ -17,10 +16,14 @@ describe('Registro de usuário no alura pic', () => {
     })
 
     it('verifica mensagem de e-mail inválido', () => {
-        cy.contains('a', 'Register now').click()
-
         cy.get('input[formcontrolname="email"]').type('douglaswillamis')
         cy.contains('button', 'Register').click()
         cy.contains('ap-vmessage', 'Invalid e-mail').should('be.visible')
+    })
+
+    it('verifica mensagem de senha com menos de 8 caracteres', () => {
+        cy.get('input[formcontrolname="password"]').type('123')
+        cy.contains('button', 'Register').click()
+        cy.contains('ap-vmessage', 'Mininum length is 8').should('be.visible')
     })
 })
