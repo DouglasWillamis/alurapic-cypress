@@ -9,6 +9,7 @@
   "author": "Douglas Willamis",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^12.3.0"
+    "cypress": "^12.3.0",
+    "mochawesome": "^7.1.3"
   }
 }
