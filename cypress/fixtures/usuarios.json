@@ -1,0 +1,33 @@
+
+[
+	{
+		"fullname": "Alexandre Pedro Henrique Melo",
+		"email": "alexandre_pedro_melo@ddfnet.com.br",
+		"password": "reHn6pxk63",
+        "username":"alexmelo"
+	},
+	{
+		"fullname": "Maria Natália Assunção",
+		"email": "maria_natalia_assuncao@bernardino.co",
+		"password": "XHQrmXBzxY",
+        "username":"marianatalia"
+	},
+	{
+		"fullname": "Davi Mário Márcio da Mota",
+		"email": "davi_mario_damota@debiasi.com.br",
+		"password": "sLBLoki0Nb",
+        "username":"davimota"
+	},
+	{
+		"fullname": "Breno Henry Cláudio Sales",
+		"email": "breno_sales@lonza.com",
+		"password": "ZrdF388TN4",
+        "username":"brenosales"
+	},
+	{
+		"fullname": "Fábio Benício Galvão",
+		"email": "fabio-galvao70@teadit.com.br",
+		"password": "fJZJK6lLIu",
+        "username":"fabiogalvao"
+	}
+]

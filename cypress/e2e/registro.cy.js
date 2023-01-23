@@ -32,4 +32,16 @@ describe('Registro de usuário no alura pic', () => {
         cy.contains('button', 'Register').click()
         cy.contains('ap-vmessage', 'Must be lower case').should('be.visible')
     })
+
+    const usuarios = require('../fixtures/usuarios.json')
+    usuarios.map((usuario) => {
+        it(`registra novo usuário ${usuario.username}`, () => {
+            cy.contains('button', 'Register').click()
+            cy.get('input[formcontrolname="email"]').type(usuario.email)
+            cy.get('input[formcontrolname="fullName"]').type(usuario.fullname)
+            cy.get('input[formcontrolname="userName"]').type(usuario.username)
+            cy.get('input[formcontrolname="password"]').type(usuario.password)
+            cy.contains('button', 'Register').click()
+        });
+    })
 })
