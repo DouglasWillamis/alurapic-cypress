@@ -2,7 +2,7 @@ describe('Login de usuário no alura pic', () => {
     it('fazer login do flavio', () => {
         cy.request({
             method: 'POST',
-            url: 'https://apialurapic.herokuapp.com/user/login',
+            url: `${Cypress.env('api_server')}/user/login`,
             body: Cypress.env()
         }).then((response) => {
             expect(response.status).to.be.equal(200)
