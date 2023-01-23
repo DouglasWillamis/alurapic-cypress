@@ -1,47 +1,37 @@
 describe('Registro de usuário no alura pic', () => {
     beforeEach(() => {
-        cy.visit('https://alura-fotos.herokuapp.com')
-        cy.contains('a', 'Register now').click()
+        cy.visit('/')
     })
 
     it('verifica mensagens de validação', () => {
+        cy.registra()
         cy.get('ng-component h4.text-center')
             .should('have.text', 'Register to embrace a new world!')
-        cy.contains('button', 'Register').click()
         cy.contains('ap-vmessage', 'Email is required!').should('be.visible')
-        cy.contains('button', 'Register').click()
         cy.contains('ap-vmessage', 'Full name is required!').should('be.visible')
         cy.contains('ap-vmessage', 'User name is required!').should('be.visible')
         cy.contains('ap-vmessage', 'Password is required!').should('be.visible')
     })
 
     it('verifica mensagem de e-mail inválido', () => {
-        cy.get('input[formcontrolname="email"]').type('douglaswillamis')
-        cy.contains('button', 'Register').click()
+        cy.registra({email: 'douglaswillamis' })
         cy.contains('ap-vmessage', 'Invalid e-mail').should('be.visible')
     })
 
     it('verifica mensagem de senha com menos de 8 caracteres', () => {
-        cy.get('input[formcontrolname="password"]').type('123')
-        cy.contains('button', 'Register').click()
+        cy.registra({password: '123' })
         cy.contains('ap-vmessage', 'Mininum length is 8').should('be.visible')
     })
 
     it('verifica mensagem de que o nome do usuário deve estar em minúsculo', () => {
-        cy.get('input[formcontrolname="userName"]').type('TESTE')
-        cy.contains('button', 'Register').click()
+        cy.registra({username: 'TESTE' })
         cy.contains('ap-vmessage', 'Must be lower case').should('be.visible')
     })
 
     const usuarios = require('../fixtures/usuarios.json')
     usuarios.map((usuario) => {
         it(`registra novo usuário ${usuario.username}`, () => {
-            cy.contains('button', 'Register').click()
-            cy.get('input[formcontrolname="email"]').type(usuario.email)
-            cy.get('input[formcontrolname="fullName"]').type(usuario.fullname)
-            cy.get('input[formcontrolname="userName"]').type(usuario.username)
-            cy.get('input[formcontrolname="password"]').type(usuario.password)
-            cy.contains('button', 'Register').click()
+            cy.registra(usuario)
         });
     })
 })
