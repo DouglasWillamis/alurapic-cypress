@@ -5,3 +5,4 @@ cypress/report/mochawesome-report/*
 cypress/screenshots/*
 !cypress/screenshots/.gitkeep
 cypress.env.json
+.idea/*
