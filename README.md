@@ -1,5 +1,7 @@
 Repositório com testes automatizados para web utilizando cypress
 
+[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
+
 > Testando e validando sistema web em Javascript com [Cypress](https://github.com/cypress-io/cypress)
 
 ## Índice
